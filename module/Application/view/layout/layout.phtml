@@ -1,0 +1,55 @@
+<?= $this->doctype() ?>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <?= $this->headTitle('ZF Skeleton Application')->setSeparator(' - ')->setAutoEscape(false) ?>
+
+        <?= $this->headMeta()
+            ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+            ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+        ?>
+
+        <!-- Le styles -->
+        <?= $this->headLink(['rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'])
+            ->prependStylesheet($this->basePath('css/main.css'))
+            ->prependStylesheet($this->basePath('css/style.css'))
+            ->prependStylesheet($this->basePath('css/bootstrap-theme.min.css'))
+            ->prependStylesheet($this->basePath('css/bootstrap.min.css'))
+        ?>
+
+
+    </head>
+    <body>
+        <header class="header"></header>
+        <div id="app" class="main">
+                <div class="container">
+                        <div class="content">
+                            <?= $this->content ?>
+                        </div>
+                </div>
+        </div>
+        <footer class="footer">
+            <p>&copy; 2005 - <?= date('Y') ?> by Zend Technologies Ltd. All rights reserved.</p>
+        </footer>
+
+
+        <!-- Scripts -->
+        <script>
+          let config = {
+            routes:{
+              commentCreate: '<?=$this->url('comment',['id' => 'postId', 'action' => 'create'])?>'
+            }
+          }
+        </script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.js"></script>
+        <?= $this->headScript()
+//            ->prependFile($this->basePath('js/bootstrap.min.js'))
+//            ->prependFile($this->basePath('js/jquery-3.1.0.min.js'))
+            ->prependFile($this->basePath('js/post.js'))
+        ?>
+        <?= $this->inlineScript() ?>
+
+    </body>
+</html>
